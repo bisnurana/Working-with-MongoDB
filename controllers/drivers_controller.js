@@ -22,7 +22,6 @@ module.exports = {
       .catch(next);
   },
   create(req, res, next) {
-    console.log(req.body);
     const driverProps = req.body;
     Driver.create(driverProps)
       .then((driver) => {
@@ -31,7 +30,7 @@ module.exports = {
       .catch(next);
   },
   update(req, res, next) {
-    const id = req.params.id;
+    const { id } = req.params;
     const driverProps = req.body;
     Driver.findByIdAndUpdate(id, driverProps)
       .then(() => {

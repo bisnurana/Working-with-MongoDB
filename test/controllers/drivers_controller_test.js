@@ -62,9 +62,8 @@ describe('Driver controller', () => {
       request(app)
         .get('/api/driver?lng=24.001&lat=60.002')
         .end((err, response) => {
-          console.log(response.body[0].email);
-          // Test not successful
           assert(response.body[0].email === 'helsinki@test.com');
+          assert(response.body.length === 1);
           done();
         });
     });
