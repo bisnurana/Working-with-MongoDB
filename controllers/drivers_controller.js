@@ -1,8 +1,18 @@
 const Driver = require('../models/driver');
 module.exports = {
     greeting(req, res) {
-        res.send({ hi: 'there' })
+        res.send({ hi: 'Awesome! You are here' })
     },
+    index(req, res, next) {
+        const { lng, lat } = req.query;
+        Driver.geoNear(
+            { type: 'point', coordinates: [lng, lat] },
+            { spherical: true, maxDistance: 20000 }
+        ).then(drivers => {
+            res.send(drivers)
+        }).catch(next);
+    }
+    ,
     create(req, res, next) {
         console.log(req.body);
         const driverProps = req.body;

@@ -48,5 +48,14 @@ describe('Driver controller', () => {
                     });
             });
     });
+    it('get drivers located near 20000 or 20km /api/drivers/query', (done) => {
+        const helsinkiDriver = new Driver({
+            email: 'helsinki@test.com',
+            geometry: {
+                type: 'Point',
+                coordinates: [‎24.945831, 60.192059]
+            }
+        });
+    });
 
 });
