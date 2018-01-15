@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+
+const { Schema } = mongoose;
 const LocationSchema = new Schema({
   type: { type: String, default: 'Point' },
-  coordinates: { type: [Number], index: '2dsphere' }
+  coordinates: { type: [Number], index: '2dsphere' },
 });
 module.exports = LocationSchema;

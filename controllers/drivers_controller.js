@@ -1,4 +1,5 @@
 const Driver = require('../models/driver');
+
 module.exports = {
   greeting(req, res) {
     res.send({ hi: 'Awesome! You are here' });
@@ -11,11 +12,11 @@ module.exports = {
         $nearSphere: {
           $geometry: {
             type: 'Point',
-            coordinates: [parseFloat(lng), parseFloat(lat)]
+            coordinates: [parseFloat(lng), parseFloat(lat)],
           },
-          $maxDistance: 20000
-        }
-      }
+          $maxDistance: 20000,
+        },
+      },
     })
       .then(drivers => res.send(drivers))
       .catch(next);
@@ -24,7 +25,7 @@ module.exports = {
     console.log(req.body);
     const driverProps = req.body;
     Driver.create(driverProps)
-      .then(driver => {
+      .then((driver) => {
         res.send(driver);
       })
       .catch(next);
@@ -44,5 +45,5 @@ module.exports = {
     Driver.findByIdAndRemove({ _id: id })
       .then(driver => res.status(204).send(driver))
       .catch(next);
-  }
+  },
 };
