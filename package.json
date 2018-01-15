@@ -1,0 +1,19 @@
+{
+  "name": "moverr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "set NODE_ENV=test && nodemon --exec mocha --recursive -R min"
+  },
+  "author": "Bishnu Rana",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mocha": "^4.1.0",
+    "mongoose": "^5.0.0-rc2",
+    "nodemon": "^1.14.7",
+    "supertest": "^3.0.0"
+  }
+}
